@@ -84,6 +84,12 @@ class VisualsUISubState extends BaseOptionsMenu
 			['Time Left', 'Time Elapsed', 'Song Name', 'Disabled']);
 		addOption(option);
 
+		var option:Option = new Option('Time Bar Colors',
+		'If checked, Time Bar Will Have The Opponent Health Color for the Left Side.',
+		'timeHealthColors',
+		'bool');
+		addOption(option);
+
 		var option:Option = new Option('Flashing Lights',
 			"Uncheck this if you're sensitive to flashing lights!",
 			'flashing',
@@ -126,7 +132,7 @@ class VisualsUISubState extends BaseOptionsMenu
 			"What song do you prefer for the Pause Screen?",
 			'pauseMusic',
 			'string',
-			['None', 'Breakfast', 'Tea Time']);
+			['None', 'Breakfast', 'Tea Time', 'breakfast-(pico)']);
 		addOption(option);
 		option.onChange = onChangePauseMusic;
 		
@@ -134,6 +140,19 @@ class VisualsUISubState extends BaseOptionsMenu
 			'Enables dynamic freeplay background color. Disable this if you prefer original V-slice freeplay menu colors',
 			'vsliceFreeplayColors',
 			'bool');
+		addOption(option);
+
+		var option:Option = new Option('Hold Animations',
+		'If unchecked, uses The New Weekend 1 Hold Animation System. If Checked, uses The Old Hold Animation System',
+		'oldHold',
+		'bool');
+		addOption(option);
+
+		var option:Option = new Option('Strum Animation:',
+			"How do you want the opponent stums\nto play their animation?",
+			'strumAnim',
+			'string',
+			['BPM Based', 'Full Anim', 'None']);
 		addOption(option);
 
 		#if CHECK_FOR_UPDATES

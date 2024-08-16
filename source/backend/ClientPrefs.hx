@@ -8,24 +8,32 @@ import states.TitleState;
 
 // Add a variable here and it will get automatically saved
 @:structInit class SaveVariables {
+
+	//Graphic settings
+	public var framerate:Int = 60;
+	public var showFPS:Bool = true;
+	public var antialiasing:Bool = true;
+	public var cacheOnGPU:Bool = #if !switch false #else true #end; //From Stilic
+	public var lowQuality:Bool = false;
+	public var shaders:Bool = true;
+
+	//V-slice / P-slice options
 	public var favSongIds:Array<String> = [];
+	public var vsliceFreeplayColors:Bool = true;
+
+	//Visual settings
+	public var oldHold:Bool = false;
 	public var downScroll:Bool = false;
 	public var middleScroll:Bool = false;
 	public var opponentStrums:Bool = true;
-	public var showFPS:Bool = true;
 	public var flashing:Bool = true;
-	public var autoPause:Bool = true;
-	public var antialiasing:Bool = true;
 	public var noteSkin:String = 'Default';
-	public var splashSkin:String = 'Psych';
+	public var splashSkin:String = 'Vanilla';
 	public var splashAlpha:Float = 0.6;
-	public var lowQuality:Bool = false;
-	public var shaders:Bool = true;
-	public var cacheOnGPU:Bool = #if !switch false #else true #end; //From Stilic
-	public var framerate:Int = 60;
 	public var camZooms:Bool = true;
 	public var hideHud:Bool = false;
-	public var noteOffset:Int = 0;
+	public var timeHealthColors:Bool = true;
+
 	public var arrowRGB:Array<Array<FlxColor>> = [
 		[0xFFC24B99, 0xFFFFFFFF, 0xFF3C1F56],
 		[0xFF00FFFF, 0xFFFFFFFF, 0xFF1542B7],
@@ -37,16 +45,22 @@ import states.TitleState;
 		[0xFF71E300, 0xFFF6FFE6, 0xFF003100],
 		[0xFFFF884E, 0xFFFFFAF5, 0xFF6C0000]];
 
-	public var ghostTapping:Bool = true;
 	public var timeBarType:String = 'Time Left';
 	public var scoreZoom:Bool = true;
-	public var noReset:Bool = false;
 	public var healthBarAlpha:Float = 1;
 	public var hitsoundVolume:Float = 0;
 	public var pauseMusic:String = 'Tea Time';
 	public var checkForUpdates:Bool = true;
-	public var vsliceFreeplayColors:Bool = true;
 	public var comboStacking:Bool = true;
+
+	//Gameplay settings
+	public var noReset:Bool = false;
+	public var noteOffset:Int = 0;
+	public var guitarHeroSustains:Bool = true;
+	public var discordRPC:Bool = true;
+	public var strumAnim:String = 'BPM Based';
+	public var autoPause:Bool = true;
+	public var ghostTapping:Bool = true;
 	public var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 
@@ -75,8 +89,6 @@ import states.TitleState;
 	public var goodWindow:Int = 90;
 	public var badWindow:Int = 135;
 	public var safeFrames:Float = 10;
-	public var guitarHeroSustains:Bool = true;
-	public var discordRPC:Bool = true;
 }
 
 class ClientPrefs {
